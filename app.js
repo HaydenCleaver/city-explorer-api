@@ -11,7 +11,7 @@ const PORT = process.env.PORT;
 class Forecast {
   constructor(obj){
     this.date = obj.datetime;
-    this.description = 
+    this.description =
     `Low of ${obj.low_temp}, high of ${obj.high_temp}, with ${obj.weather.description}` ;
   }
 }
@@ -30,7 +30,8 @@ app.get('/weather', (request, response)=> {
 
   if (city) {
     let forecastResponse = city.data.map(forecast => new Forecast (forecast));
-    response.send(forecastResponse); //send weather data back;
+    response.send(forecastResponse);
+    console.log(forecastResponse);//send weather data back;
   } else {
     response.status(404).send('City not in database');
   }
