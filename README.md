@@ -1,36 +1,29 @@
 # City Explorer
 
 **Author**: Hayden Cleaver
-**Version**: 1.2.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 1.1.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
-This application allows users to search a city and retrieve the latitude/longitude of the city as well as a map of the city center.
+This is a server that handles requests from the City Explorer app to provide data.
 
 ## Getting Started
 
-1. Install React on local computer and create repository.
-2. Install React-Boostrap and Axios on local repository.
-3. Create LocationIQ account and retrieve API key.
-4. Create `.env` file in root folder of repo.
-5. Add API key to `.env` file in following format:
-    * `REACT_APP_CITY_KEY=<YOUR KEY>`
-    * ensure there are no spaces
-6. Add `.env` to `.gitignore` file.
-7. `npm start`
+1. Create repo and clone to local machine.
+2. NPM Install express, dotenv, and cors.
+3. Add additional files such as .gitignore, .env, and .eslinterc.json.
+4. Set .env value to PORT.
 
 ## Architecture
 
-Application utilizes React, React-Bootstrap and Axios libraries, and LocationIQ API for map data.
+Express, Dotenv, Cors
 
 ![Day 2: Back-End Whiteboard](/img/Lab7Board.png)
 
 ## Change Log
 
-07/19/2022 10:30pm - Application supports search functionality and renders lat/long.
+07/20/2022 7:35pm - Initial Server Repo created
 
-07/20/2022 12:00am - Map image of area now added to data rendered.
-
-07/20/2022 12:30am - Error alert is now displayed if no input is entered into search field.
+07/20/2022 11:45pm - Server takes in searches based upon available data.
 
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
@@ -38,43 +31,34 @@ Application utilizes React, React-Bootstrap and Axios libraries, and LocationIQ 
 
 ## Credit and Collaborations
 
-Resources:
-* [NPM Axios](https://www.npmjs.com/package/axios#handling-errors)
-
-* [React-Bootstrap](https://react-bootstrap.github.io/)
-
-* [LocationIQ](https://locationiq.com/)
-
-Credit: <br>
-Thanks to DAY1 partner [Joshua Frazer](https://github.com/Frazmatic) for assisting me with the error data feature. <br>
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
-## Feature #1: Search Locations
+## Feature #1: Set up Repo
 
-Estimate of time needed to complete: 1 hr
+Estimate of time needed to complete: 30 min
 
-Start time: 8:00pm
+Start time: 7:00pm
 
-Finish time: 10:30pm
+Finish time: 7:35pm
 
-Actual time needed to complete: 2.5 hrs
+Actual time needed to complete: 35 min
 
-## Feature #2: Map
+## Feature #2: Weather
 
-Estimate of time needed to complete: 2 hrs
+Estimate of time needed to complete: 3-4 hrs
 
-Start time: 10:45 pm
+Start time: 9:00pm
 
-Finish time: 12 am
+Finish time: --
 
-Actual time needed to complete: 1.25 hrs
+Actual time needed to complete: 3+ hrs
 
-## Feature #3: Error Alert
+## Feature #3: Errors
 
-Estimate of time needed to complete: 1 hr
+Estimate of time needed to complete:
 
-Start time: 12 am
+Start time:
 
-Finish time: 12:30 am
+Finish time:
 
-Actual time needed to complete: 30 minutes
+Actual time needed to complete:
