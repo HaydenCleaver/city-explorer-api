@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+require('dotenv').config();
 const data = require('./data/weather.json');
 const app = express();
 const cors = require('cors');
@@ -44,6 +45,6 @@ app.use('*', (error, request, response, next)=> {
   response.status(500).send(error);
 });
 
-app.listen(3000, () => {
-  console.log(`Server is running on Port: 3000`);
+app.listen(PORT, () => {
+  console.log(`Server is running on Port: ${PORT}`);
 });
