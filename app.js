@@ -8,13 +8,10 @@ app.use(cors());
 const PORT = process.env.PORT;
 
 class Forecast {
-  constructor(date, description){
-    this.date = date;
-    this.description = description;
-  }
-
-  forecast (object) {
-    let dailyForecast =
+  constructor(obj){
+    this.date = obj.datetime;
+    this.description = 
+    `Low of ${obj.low_temp}, high of ${obj.high_temp}, with ${obj.weather.description}` ;
   }
 }
 
@@ -31,7 +28,8 @@ app.get('/weather', (request, response)=> {
   console.log(citySearch.city_name);
 
   if (city) {
-    response.send('city found!'); //send weather data back;
+    let forecastResponse = city.data.map(forecast => new Forecast (forecast));
+    response.send(forecastResponse); //send weather data back;
   } else {
     response.status(404).send('City not in database');
   }
@@ -42,8 +40,8 @@ app.get('/error', (request, response)=> {
   throw new Error('Error :(');
 });
 
-app.use('*', (error, request, response)=> {
-  response.send(500).send(error);
+app.use('*', (error, request, response, next)=> {
+  response.status(500).send(error);
 });
 
 app.listen(3000, () => {
