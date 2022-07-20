@@ -47,18 +47,18 @@ Actual time needed to complete: 35 min
 
 Estimate of time needed to complete: 3-4 hrs
 
-Start time: 9:00pm
+Start time: 9:00pm; 5:00pm
 
-Finish time: --
+Finish time: 5:50pm
 
-Actual time needed to complete: 3+ hrs
+Actual time needed to complete: 4 hrs
 
 ## Feature #3: Errors
 
-Estimate of time needed to complete:
+Estimate of time needed to complete: 1 hr
 
-Start time:
+Start time: 6:00pm
 
-Finish time:
+Finish time: 7:00pm
 
-Actual time needed to complete:
+Actual time needed to complete: 1 hr
