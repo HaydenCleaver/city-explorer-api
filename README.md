@@ -17,6 +17,7 @@ This is a server that handles requests from the City Explorer app to provide dat
 
 Express, Dotenv, Cors
 
+![Day 3: Expanded API Whiteboard](/img/Lab8.png)
 ![Day 2: Back-End Whiteboard](/img/Lab7Board.png)
 
 ## Change Log
