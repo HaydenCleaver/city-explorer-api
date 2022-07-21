@@ -7,6 +7,8 @@ const app = express();
 const cors = require('cors');
 app.use(cors());
 const PORT = process.env.PORT;
+const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
+const MOVIE_API_KEY = process.env.MOVIE_API_KEY;
 
 class Forecast {
   constructor(obj){
@@ -18,7 +20,7 @@ class Forecast {
 
 app.get('/weather', (request, response)=> {
   console.log(request.query);
-
+  let url = `https://api.weatherbit.io/v2.0/bulk/files/forecasts_daily.csv.gz?key=${WEATHER_API_KEY}`;
   let citySearch = request.query;
 
   let city = data.find(element =>
@@ -49,3 +51,6 @@ app.use('*', (error, request, response, next)=> {
 app.listen(PORT, () => {
   console.log(`Server is running on Port: ${PORT}`);
 });
+
+// https://api.themoviedb.org/3/movie/550?api_key=YOUR_KEY
+// https://api.weatherbit.io/v2.0/bulk/files/forecasts_daily.csv.gz?key=YOUR_KEY
