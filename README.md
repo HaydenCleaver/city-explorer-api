@@ -4,6 +4,7 @@
 **Version**: 1.1.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
+
 This is a server that handles requests from the City Explorer app to provide data.
 
 ## Getting Started
@@ -17,6 +18,7 @@ This is a server that handles requests from the City Explorer app to provide dat
 
 Express, Dotenv, Cors
 
+![Day 4: Refactor Whiteboard](/img/Lab9.png)
 ![Day 3: Expanded API Whiteboard](/img/Lab8.png)
 ![Day 2: Back-End Whiteboard](/img/Lab7Board.png)
 
