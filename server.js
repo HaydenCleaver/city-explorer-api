@@ -29,16 +29,17 @@ server.get('/weather', (request, response)=> {
 
     // let citySearch = request.query;
 
-    let city = res.data;
+    let cityWeather = res.data.data;
 
-    // let city = data.find(element =>
-    //   element.city_name === data.city_name
-    //   && Math.round(element.lat) === Math.round(data.lat)
-    //   && Math.round(element.lon) === Math.round(data.lon));
 
-    console.log(city.data.city_name);
+    // // let city = data.find(element =>
+    // //   element.city_name === data.city_name
+    // //   && Math.round(element.lat) === Math.round(data.lat)
+    // //   && Math.round(element.lon) === Math.round(data.lon));
 
-    let forecastResponse = city.data.map(forecast => new Forecast (forecast));
+    console.log(cityWeather.data.city_name);
+
+    let forecastResponse = cityWeather.data.map(forecast => new Forecast (forecast));
     response.send(forecastResponse);//send weather data back;
     console.log(forecastResponse);
 
