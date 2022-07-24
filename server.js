@@ -24,25 +24,25 @@ server.get('/weather', (request, response)=> {
 
   console.log(request.query);
 
-  let url = `https://api.weatherbit.io/v2.0/bulk/files/forecasts_daily.csv.gz?key=${WEATHER_API_KEY}&lat=${request.query.lat}&lon=${request.query.lon}&days=5`;
+  let url = `https://api.weatherbit.io/v2.0/forecast/daily?key=${WEATHER_API_KEY}&city_name=${request.query.city_name}&lat=${request.query.lat}&lon=${request.query.lon}&days=5`;
   let citySearch = request.query;
 
   axios.get(url).then(res => {
 
-    let city = res.find(element =>
-      element.city_name === citySearch.city_name
-      && Math.round(element.lat) === Math.round(citySearch.lat)
-      && Math.round(element.lon) === Math.round(citySearch.lon));
+    // let city = res.data.find(element =>
+    //   element.city_name.toLowerCase() === citySearch.city_name.toLowerCase()
+    //   && Math.round(element.lat) === Math.round(citySearch.lat)
+    //   && Math.round(element.lon) === Math.round(citySearch.lon));
 
-    console.log(res.city_name);
+    console.log(res.data);
+    console.log(citySearch.city_name.toLowerCase === res.data.city_name.toLowerCase);
 
-    if (city) {
-      let forecastResponse = city.data.map(forecast => new Forecast (forecast));
+    if (citySearch.city_name.toLowerCase() === res.data.city_name.toLowerCase()) {
+      console.log(Forecast);
+      let forecastResponse = res.data.map(forecast => new Forecast (forecast));
+      console.log('complete?');
       response.send(forecastResponse);//send weather data back;
       console.log(forecastResponse);
-
-    } else {
-      response.status(404).send('City not in database');
     }
 
   })
@@ -51,10 +51,6 @@ server.get('/weather', (request, response)=> {
     });
 
 
-});
-
-server.get('/error', (request, response)=> {
-  throw new Error('Error :(');
 });
 
 server.use('*', (error, request, response, next)=> {
