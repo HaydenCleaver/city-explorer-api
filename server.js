@@ -11,7 +11,6 @@ server.use(cors());
 
 const PORT = process.env.PORT;
 const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
-const MOVIE_API_KEY = process.env.MOVIE_API_KEY;
 
 class Forecast {
   constructor(obj){
