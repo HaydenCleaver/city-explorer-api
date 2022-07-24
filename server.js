@@ -29,18 +29,8 @@ server.get('/weather', (request, response)=> {
 
   axios.get(url).then(res => {
 
-    // let city = res.data.find(element =>
-    //   element.city_name.toLowerCase() === citySearch.city_name.toLowerCase()
-    //   && Math.round(element.lat) === Math.round(citySearch.lat)
-    //   && Math.round(element.lon) === Math.round(citySearch.lon));
-
-    console.log(res.data);
-    console.log(citySearch.city_name.toLowerCase === res.data.city_name.toLowerCase);
-
     if (citySearch.city_name.toLowerCase() === res.data.city_name.toLowerCase()) {
-      console.log(Forecast);
-      let forecastResponse = res.data.map(forecast => new Forecast (forecast));
-      console.log('complete?');
+      let forecastResponse = res.data.data.map(forecast => new Forecast (forecast));
       response.send(forecastResponse);//send weather data back;
       console.log(forecastResponse);
     }
@@ -49,8 +39,6 @@ server.get('/weather', (request, response)=> {
     .catch((error) => {
       response.status(500).send(error);
     });
-
-
 });
 
 server.use('*', (error, request, response, next)=> {
