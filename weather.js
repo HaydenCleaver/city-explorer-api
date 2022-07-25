@@ -40,4 +40,4 @@ const handleWeather = (city_name, lat, lon, response) => {
 
 
 
-module.exports = {Forecast};
+module.exports = handleWeather;
