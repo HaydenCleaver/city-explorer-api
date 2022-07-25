@@ -1,7 +1,7 @@
 # City Explorer
 
 **Author**: Hayden Cleaver
-**Version**: 1.1.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 1.4.17 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
 
@@ -30,6 +30,11 @@ Express, Dotenv, Cors
 
 07/20/2022 11:45pm - Server takes in searches based upon available data.
 
+07/24/2022 11:00pm - Server now pulls data from Weatherbit API.
+
+07/25/2022 12:00am - Server takes in additional request for movie data from TMDB API.
+
+07/25/2022 12:30am - Code for requests modularized and placed on seperate .js files.
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
@@ -83,6 +88,24 @@ Start time: 07/20/22 - 5:00pm
 
 Finish time: 07/24/22 - 11:00pm
 
-Actual time needed to complete: 15+ hours
+Actual time needed to complete: 15+ hrs
 
-## 
+## Feature #5: TMDB API
+
+Estimate of time needed to complete: 1 hr
+
+Start time: 11:00pm
+
+Finish time: 12:00am
+
+Actual time needed to complete: 1 hr
+
+## Feature #6: Modularize Backend
+
+Estimate of time needed to complete: 1 hr
+
+Start time: 12:00am
+
+Finish time: 12:30am
+
+Actual time needed to complete: 30 min
