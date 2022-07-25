@@ -9,22 +9,17 @@ server.use(cors());
 
 const PORT = process.env.PORT;
 const handleWeather = require('./weather');
+const handleMovies = require('./movies');
 
 server.get('/weather', (request, response)=> {
-  handleWeather(request.query.city_name, request.query.lat, request.query.lon, response);
+  handleWeather(request, response);
 
 });
 
-// server.get('/movies', (request, response) => {
+server.get('/movies', (request, response) => {
+  handleMovies(request, response);
 
-//   let url = '';
-//   let citySearch = request.query;
-
-//   try {
-//     let res = await handleRequest(url);
-
-//   }
-// });
+});
 
 server.use('*', (error, request, response, next)=> {
   response.status(500).send(error);

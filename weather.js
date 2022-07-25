@@ -16,14 +16,12 @@ class Forecast {
   }
 }
 
-const handleWeather = (city_name, lat, lon, response) => {
+const handleWeather = (request, response) => {
 
-	console.log('hello');
-
-  let url = `https://api.weatherbit.io/v2.0/forecast/daily?key=${WEATHER_API_KEY}&city_name=${city_name}&lat=${lat}&lon=${lon}&days=5`;
+  let url = `https://api.weatherbit.io/v2.0/forecast/daily?key=${WEATHER_API_KEY}&city_name=${request.query.city_name}&lat=${request.query.lat}&lon=${request.query.lon}&days=5`;
 
   axios.get(url).then(res => {
-    if (city_name.toLowerCase() === res.data.city_name.toLowerCase()) {
+    if (request.query.city_name.toLowerCase() === res.data.city_name.toLowerCase()) {
 
       let forecastResponse = res.data.data.map(forecast => new Forecast (forecast));
       response.send(forecastResponse);
