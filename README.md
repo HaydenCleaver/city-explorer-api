@@ -18,9 +18,11 @@ This is a server that handles requests from the City Explorer app to provide dat
 
 Express, Dotenv, Cors
 
+![Day 5: Modularization](/img/Lab10.jpg)
 ![Day 4: Refactor Whiteboard](/img/Lab9.png)
 ![Day 3: Expanded API Whiteboard](/img/Lab8.png)
 ![Day 2: Back-End Whiteboard](/img/Lab7Board.png)
+![Day 1: Front-End Whiteboard](/img/Lab6Board.png)
 
 ## Change Log
 
@@ -34,6 +36,13 @@ Express, Dotenv, Cors
 
 ## Credit and Collaborations
 
+APIs: <br>
+
+[Weatherbit.io](https://www.weatherbit.io/api)<br>
+[TMDB.org](https://developers.themoviedb.org/3/getting-started/introduction)
+
+<hr>
+Thanks to David Souther and Ben Mills for helping with some troubleshooting.
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
 ## Feature #1: Set up Repo
@@ -65,3 +74,15 @@ Start time: 6:00pm
 Finish time: 7:00pm
 
 Actual time needed to complete: 1 hr
+
+## Feature #4: Weatherbit API
+
+Estimate of time needed to complete: 2 hrs
+
+Start time: 07/20/22 - 5:00pm
+
+Finish time: 07/24/22 - 11:00pm
+
+Actual time needed to complete: 15+ hours
+
+## 
