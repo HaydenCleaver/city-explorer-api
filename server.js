@@ -2,44 +2,29 @@
 
 const express = require('express');
 const server = express();
-const axios = require('axios');
 const cors = require('cors');
 
 require('dotenv').config();
-// const data = require('./data/weather.json');
 server.use(cors());
 
 const PORT = process.env.PORT;
-const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
-
-class Forecast {
-  constructor(obj){
-    this.date = obj.datetime;
-    this.description =
-    `Low of ${obj.low_temp}, high of ${obj.high_temp}, with ${obj.weather.description}` ;
-  }
-}
+const handleWeather = require('./weather');
 
 server.get('/weather', (request, response)=> {
+  handleWeather(request.query.city_name, request.query.lat, request.query.lon, response);
 
-  console.log(request.query);
-
-  let url = `https://api.weatherbit.io/v2.0/forecast/daily?key=${WEATHER_API_KEY}&city_name=${request.query.city_name}&lat=${request.query.lat}&lon=${request.query.lon}&days=5`;
-  let citySearch = request.query;
-
-  axios.get(url).then(res => {
-
-    if (citySearch.city_name.toLowerCase() === res.data.city_name.toLowerCase()) {
-      let forecastResponse = res.data.data.map(forecast => new Forecast (forecast));
-      response.send(forecastResponse);//send weather data back;
-      console.log(forecastResponse);
-    }
-
-  })
-    .catch((error) => {
-      response.status(500).send(error);
-    });
 });
+
+// server.get('/movies', (request, response) => {
+
+//   let url = '';
+//   let citySearch = request.query;
+
+//   try {
+//     let res = await handleRequest(url);
+
+//   }
+// });
 
 server.use('*', (error, request, response, next)=> {
   response.status(500).send(error);
