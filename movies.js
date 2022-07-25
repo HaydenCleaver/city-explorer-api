@@ -29,13 +29,17 @@ const handleMovies = (request, response) => {
   let url = `https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_API_KEY}&query=${request.query.query}`;
 
   if (Cache[cacheID] && (currentDate - Cache[cacheID].timestamp < 40000 )) {
+
     console.log('Hit');
     return Cache[cacheID].data;
+
   } else {
+
     console.log('Miss');
     Cache[cacheID] = {};
     Cache[cacheID].timestamp = currentDate;
     Cache[cacheID].data = axios.get(url).then(res => {
+
       if (res) {
         let movieList = res.data.results.map(movieObj => new Movies (movieObj));
         response.send(movieList);

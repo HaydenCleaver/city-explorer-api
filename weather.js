@@ -34,7 +34,4 @@ const handleWeather = (request, response) => {
 
 };
 
-
-
-
 module.exports = handleWeather;
