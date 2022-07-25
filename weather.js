@@ -25,7 +25,6 @@ const handleWeather = (request, response) => {
 
       let forecastResponse = res.data.data.map(forecast => new Forecast (forecast));
       response.send(forecastResponse);
-      console.log(forecastResponse);
     }
 
   })

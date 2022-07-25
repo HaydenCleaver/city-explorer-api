@@ -28,6 +28,3 @@ server.use('*', (error, request, response, next)=> {
 server.listen(PORT, () => {
   console.log(`Server is running on Port: ${PORT}`);
 });
-
-// https://api.themoviedb.org/3/movie/550?api_key=YOUR_KEY
-// https://api.weatherbit.io/v2.0/bulk/files/forecasts_daily.csv.gz?key=YOUR_KEY
