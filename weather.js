@@ -18,7 +18,7 @@ class Forecast {
 }
 
 const handleWeather = (request, response) => {
-  let cacheID = request.query.query;
+  let cacheID = request.query.city_name;
   let currentDate = Date.now();
 
   let url = `https://api.weatherbit.io/v2.0/forecast/daily?key=${WEATHER_API_KEY}&city_name=${request.query.city_name}&lat=${request.query.lat}&lon=${request.query.lon}&days=5`;
@@ -40,7 +40,11 @@ const handleWeather = (request, response) => {
         let forecastResponse = res.data.data.map(forecast => new Forecast (forecast));
         response.send(forecastResponse);
       }
-    });
+    })
+
+      .catch((error) => {
+        response.status(500).send(error);
+      });
 
   }
   // axios.get(url).then(res => {
