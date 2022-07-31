@@ -18,46 +18,20 @@ class Forecast {
 }
 
 const handleWeather = (request, response) => {
-  let cacheID = request.query.city_name;
-  let currentDate = Date.now();
 
   let url = `https://api.weatherbit.io/v2.0/forecast/daily?key=${WEATHER_API_KEY}&city_name=${request.query.city_name}&lat=${request.query.lat}&lon=${request.query.lon}&days=5`;
 
-  if (Cache[cacheID] && (currentDate - Cache[cacheID].timestamp < 40000 )) {
+  axios.get(url).then(res => {
+    if (request.query.city_name.toLowerCase() === res.data.city_name.toLowerCase()) {
 
-    console.log('Hit');
-    return Cache[cacheID].data;
+      let forecastResponse = res.data.data.map(forecast => new Forecast (forecast));
+      response.send(forecastResponse);
+    }
 
-  } else {
-
-    console.log('Miss');
-    Cache[cacheID] = {};
-    Cache[cacheID].timestamp = currentDate;
-    Cache[cacheID].data = axios.get(url).then(res => {
-
-      if (request.query.city_name.toLowerCase() === res.data.city_name.toLowerCase()) {
-
-        let forecastResponse = res.data.data.map(forecast => new Forecast (forecast));
-        response.send(forecastResponse);
-      }
-    })
-
-      .catch((error) => {
-        response.status(500).send(error);
-      });
-
-  }
-  // axios.get(url).then(res => {
-  //   if (request.query.city_name.toLowerCase() === res.data.city_name.toLowerCase()) {
-
-  //     let forecastResponse = res.data.data.map(forecast => new Forecast (forecast));
-  //     response.send(forecastResponse);
-  //   }
-
-  // })
-  //   .catch((error)=> {
-  //     response.status(404).send(`${error}: City Not Found!`);
-  //   });
+  })
+    .catch((error)=> {
+      response.status(404).send(`${error}: City Not Found!`);
+    });
 
 };
 
